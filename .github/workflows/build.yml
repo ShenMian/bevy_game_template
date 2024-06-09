@@ -3,7 +3,7 @@ name: Build
 on: [push, pull_request]
 
 env:
-    EXECUTABLE_NAME: soukoban-rs
+    EXECUTABLE_NAME: sokoban
     OSX_APP_NAME: Sokoban
 
 jobs:
