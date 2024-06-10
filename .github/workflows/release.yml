@@ -7,7 +7,7 @@ on:
 
 env:
     EXECUTABLE_NAME: sokoban
-    OSX_APP_NAME: Sokoban
+    APP_NAME: Sokoban # OSX App name
 
 permissions:
     contents: write
@@ -122,9 +122,9 @@ jobs:
                 mkdir -p build/macos/src/Game.app/Contents/MacOS/assets
                 cp -r assets/ build/macos/src/Game.app/Contents/MacOS/assets
                 cp target/release/${{ env.EXECUTABLE_NAME }} build/macos/src/Game.app/Contents/MacOS/
-                mv build/macos/src/Game.app build/macos/src/${{ env.OSX_APP_NAME }}.app
+                mv build/macos/src/Game.app build/macos/src/${{ env.APP_NAME }}.app
                 ln -s /Applications build/macos/src/
-                hdiutil create -fs HFS+ -volname "${{ env.OSX_APP_NAME }}" -srcfolder build/macos/src sokoban-macos.dmg
+                hdiutil create -fs HFS+ -volname "${{ env.APP_NAME }}" -srcfolder build/macos/src sokoban-macos.dmg
 
             - name: Upload artifact to release
               uses: svenstaro/upload-release-action@v2
@@ -159,7 +159,7 @@ jobs:
               uses: svenstaro/upload-release-action@v2
               with:
                 repo_token: ${{ secrets.GITHUB_TOKEN }}
-                file: target/debug/apk/${{ env.OSX_APP_NAME }}.apk
+                file: target/debug/apk/${{ env.APP_NAME }}.apk
                 asset_name: sokoban-android.apk
                 release_name: ${{ env.TAG }}
                 tag: ${{ env.TAG }}

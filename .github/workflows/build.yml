@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 env:
     EXECUTABLE_NAME: sokoban
-    OSX_APP_NAME: Sokoban
+    APP_NAME: Sokoban # OSX App name
 
 jobs:
     build-windows:
@@ -92,9 +92,9 @@ jobs:
                 mkdir -p build/macos/src/Game.app/Contents/MacOS/assets
                 cp -r assets/ build/macos/src/Game.app/Contents/MacOS/assets
                 cp target/release/${{ env.EXECUTABLE_NAME }} build/macos/src/Game.app/Contents/MacOS/
-                mv build/macos/src/Game.app build/macos/src/${{ env.OSX_APP_NAME }}.app
+                mv build/macos/src/Game.app build/macos/src/${{ env.APP_NAME }}.app
                 ln -s /Applications build/macos/src/
-                hdiutil create -fs HFS+ -volname "${{ env.OSX_APP_NAME }}" -srcfolder build/macos/src sokoban-macos.dmg
+                hdiutil create -fs HFS+ -volname "${{ env.APP_NAME }}" -srcfolder build/macos/src sokoban-macos.dmg
 
             - name: Upload artifact
               uses: actions/upload-artifact@v4
@@ -122,7 +122,7 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                   name: sokoban-android.apk
-                  path: target/debug/apk/${{ env.OSX_APP_NAME }}.apk
+                  path: target/debug/apk/${{ env.APP_NAME }}.apk
 
     build-wasm:
         runs-on: ubuntu-latest
