@@ -2,4 +2,4 @@
 
 ## Assets
 
-* Bevy icon: [MIT License](licenses/Bevy_MIT_License.md);
+- Icon: <https://www.svgrepo.com/svg/2865/crate> (CC0)
