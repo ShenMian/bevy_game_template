@@ -20,7 +20,7 @@ jobs:
               id: get-tag
               run: |
                 echo "tag=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
-                echo "version=${GITHUB_REF#refs/tags/#v}" >> "$GITHUB_OUTPUT"
+                echo "version=${GITHUB_REF#refs/tags/v}" >> "$GITHUB_OUTPUT"
         outputs:
             tag: ${{ steps.get-tag.outputs.tag }}
             version: ${{ steps.get-tag.outputs.version }}
