@@ -31,4 +31,4 @@ target_sdk_version = 33
 
 [package.metadata.android.application]
 icon = "@mipmap/icon"
-label = "ShenMian"
+label = "Sokoban"
