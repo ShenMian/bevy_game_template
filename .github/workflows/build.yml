@@ -19,7 +19,7 @@ jobs:
             - name: Pack
               uses: vimtor/action-zip@v1
               with:
-                files: assets target/release/${{ env.EXECUTABLE_NAME }}.exe
+                files: assets/ target/release/${{ env.EXECUTABLE_NAME }}.exe
                 dest: sokoban-windows.zip
 
             - name: Upload artifact
