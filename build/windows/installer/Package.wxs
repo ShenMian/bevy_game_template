@@ -35,7 +35,7 @@
         <!-- Installs the actual files -->
         <ComponentGroup Id="MainComponent" Directory="INSTALLFOLDER">
             <Component>
-                <File Id="Executable" Source="..\..\..\target\dist\sokoban.exe" Vital="true" />  <!-- This should point to your executable -->
+                <File Id="Executable" Source="..\..\..\target\release\sokoban.exe" Vital="true" />  <!-- This should point to your executable -->
             </Component>
         </ComponentGroup>
 
