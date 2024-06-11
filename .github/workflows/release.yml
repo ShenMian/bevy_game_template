@@ -176,9 +176,8 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - uses: dtolnay/rust-toolchain@stable
-
-            - name: Add rustup target(s)
-              run: rustup target add aarch64-apple-ios x86_64-apple-ios
+              with:
+                  targets: aarch64-apple-ios x86_64-apple-ios
 
             - name: Build
               run: |
