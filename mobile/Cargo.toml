@@ -20,11 +20,11 @@ features = ["oboe-shared-stdcxx"]
 
 [package.metadata.android]
 package = "org.shenmian.Sokoban"
-apk_name = "Sokoban"                      # Same as GAME_OSX_APP_NAME in release workflow
+apk_name = "Sokoban"                                                 # Same as GAME_OSX_APP_NAME in release workflow
 assets = "../assets"
 strip = "strip"
 resources = "../build/android/res"
-build_targets = ["aarch64-linux-android"]
+build_targets = ["aarch64-linux-android", "armv7-linux-androideabi"]
 
 [package.metadata.android.sdk]
 target_sdk_version = 33
