@@ -109,6 +109,29 @@ jobs:
                   name: sokoban-android.apk
                   path: target/debug/apk/${{ env.APP_NAME }}.apk
 
+    build-ios:
+        runs-on: macos-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: dtolnay/rust-toolchain@stable
+              with:
+                  targets: aarch64-apple-ios x86_64-apple-ios
+
+            - name: Build
+              run: |
+                cd mobile
+                make xcodebuild-iphone-release
+                mkdir Payload
+                mv build/Build/Products/Release-iphoneos/*.app Payload
+                zip -r ${{ env.EXECUTABLE_NAME }}.zip Payload
+                mv ${{ env.EXECUTABLE_NAME }}.zip ${{ env.EXECUTABLE_NAME }}.ipa
+
+            - name: Upload artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: sokoban-ios-unsigned.ipa
+                  path: mobile/${{ env.EXECUTABLE_NAME }}.ipa
+
     build-wasm:
         runs-on: ubuntu-latest
         steps:
