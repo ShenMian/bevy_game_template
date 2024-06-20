@@ -1,6 +1,6 @@
 use bevy::prelude::*;
 use bevy::window::WindowMode;
-use sokoban::GamePlugin;
+use sokoban::SokobanPlugin;
 
 #[bevy_main]
 fn main() {
@@ -14,7 +14,7 @@ fn main() {
             }),
             ..default()
         }),
-        GamePlugin,
+        SokobanPlugin,
     ));
 
     // MSAA makes some Android devices panic, this is under investigation
